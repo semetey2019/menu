@@ -104,30 +104,21 @@ class _MenuViewState extends State<MenuView> {
                 Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Card(
-                        child: Image.asset('assets/6.png'),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            _dialogBuilder(context);
+                          });
+                        },
+                        child: Card(
+                          child: Image.asset('assets/6.png'),
+                        ),
                       ),
-                      Text("Салат по восточному"),
+                      Text(
+                        "Салат по восточному",
+                        style: TextStyle(fontSize: 10),
+                      ),
                     ]),
-                Column(children: [
-                  Card(child: Image.asset('assets/1.png')),
-                  Text("Рыба с овощами и рисом")
-                ]),
-                Column(
-                  children: [
-                    Card(child: Image.asset('assets/2.png')),
-                    Text("Рыба с овощами и рисом")
-                  ],
-                ),
-                Card(child: Image.asset('assets/7.png')),
-                Card(child: Image.asset('assets/3.png')),
-                Card(child: Image.asset('assets/4.png')),
-                Card(child: Image.asset('assets/6.png')),
-                Card(child: Image.asset('assets/1.png')),
-                Card(child: Image.asset('assets/2.png')),
-                Card(child: Image.asset('assets/7.png')),
-                Card(child: Image.asset('assets/3.png')),
-                Card(child: Image.asset('assets/4.png')),
               ],
             ),
           ),
@@ -231,4 +222,36 @@ class _NestedTabBarState extends State<NestedTabBar>
       ],
     );
   }
+}
+
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text(
+          'Рыба с овощами и рисом',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        content: const Text(
+          'Рыба маринованная со специями, лимонным соком, соевым соусом и запечeнная в духовке с лучком, томатами и картошечкой под золотистой майонезно-сырной шубкой',
+          textAlign: TextAlign.start,
+        ),
+        actions: [
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: Theme.of(context).textTheme.labelLarge,
+            ),
+            child: const Text('Добавить в корзину'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
