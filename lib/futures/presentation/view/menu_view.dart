@@ -94,33 +94,54 @@ class _MenuViewState extends State<MenuView> {
               ),
             ],
           ),
-          body: Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: GridView.count(
-              crossAxisCount: 3,
-              shrinkWrap: true,
-              physics: ScrollPhysics(),
-              children: [
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            _dialogBuilder(context);
-                          });
-                        },
-                        child: Card(
-                          child: Image.asset('assets/6.png'),
-                        ),
-                      ),
-                      Text(
-                        "Салат по восточному",
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ]),
-              ],
-            ),
+          body: GridView.builder(
+            padding: const EdgeInsets.all(16.00),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 10),
+            itemCount: texts.length,
+            itemBuilder: (BuildContext context, int index) {
+              String pngPath = images[index];
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    _dialogBuilder(context);
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(pngPath),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              );
+            },
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 16, right: 16),
+            //   child: GridView.count(
+            //     crossAxisCount: 3,
+            //     shrinkWrap: true,
+            //     physics: ScrollPhysics(),
+            //     children: [
+            //       Column(
+            //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //           children: [
+            //             InkWell(
+            //               onTap: () {
+            //
+            //               },
+            //               child: Card(
+            //                 child: Image.asset('assets/6.png'),
+            //               ),
+            //             ),
+            //             Text(
+            //               "Салат по восточному",
+            //               style: TextStyle(fontSize: 10),
+            //             ),
+            //           ]),
+            //     ],
+            //   ),
           ),
           bottomNavigationBar: SizedBox(
             child: BottomNavigationBar(
@@ -229,12 +250,59 @@ Future<void> _dialogBuilder(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text(
-          'Рыба с овощами и рисом',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+        backgroundColor: Colors.white,
+        icon: Container(
+          decoration: BoxDecoration(
+              color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
+          child: Row(
+            children: [
+              Image.asset("assets/1.png",
+                  height: 230, width: 230, fit: BoxFit.contain),
+              SizedBox(
+                child: Image.asset(
+                  "assets/favorite.png",
+                ),
+              ),
+              SizedBox(
+                child: Image.asset(
+                  "assets/Icons.png",
+                ),
+              )
+            ],
           ),
+        ),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Рыба с овощами и рисом',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Text(
+                  "799 p",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "560г",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey),
+                ),
+              ],
+            )
+          ],
         ),
         content: const Text(
           'Рыба маринованная со специями, лимонным соком, соевым соусом и запечeнная в духовке с лучком, томатами и картошечкой под золотистой майонезно-сырной шубкой',
@@ -245,7 +313,18 @@ Future<void> _dialogBuilder(BuildContext context) {
             style: TextButton.styleFrom(
               textStyle: Theme.of(context).textTheme.labelLarge,
             ),
-            child: const Text('Добавить в корзину'),
+            child: Container(
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Center(
+                  child: Text(
+                    'Добавить в корзину',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )),
             onPressed: () {
               Navigator.of(context).pop();
             },
