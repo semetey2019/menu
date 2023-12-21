@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:menu/futures/presentation/view/pain.dart';
 
 class MenuView extends StatefulWidget {
   const MenuView({super.key});
@@ -254,22 +255,35 @@ Future<void> _dialogBuilder(BuildContext context) {
         icon: Container(
           decoration: BoxDecoration(
               color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
-          child: Row(
-            children: [
-              Image.asset("assets/1.png",
-                  height: 230, width: 230, fit: BoxFit.contain),
-              SizedBox(
-                child: Image.asset(
-                  "assets/favorite.png",
+          child: Stack(children: [
+            Row(
+              children: [
+                Image.asset("assets/1.png",
+                    height: 230, width: 230, fit: BoxFit.contain),
+                Container(
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Image.asset(
+                    "assets/favorite.png",
+                  ),
                 ),
-              ),
-              SizedBox(
-                child: Image.asset(
-                  "assets/Icons.png",
-                ),
-              )
-            ],
-          ),
+                SizedBox(width: 10),
+                Container(
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Image.asset(
+                    "assets/Icons.png",
+                  ),
+                )
+              ],
+            ),
+          ]),
         ),
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -326,7 +340,8 @@ Future<void> _dialogBuilder(BuildContext context) {
                   ),
                 )),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => PainPage()));
             },
           ),
         ],
