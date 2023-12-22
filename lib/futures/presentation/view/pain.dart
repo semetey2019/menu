@@ -9,6 +9,7 @@ class PainPage extends StatefulWidget {
 }
 
 class _PainPageState extends State<PainPage> {
+  int index = 1;
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -40,7 +41,7 @@ class _PainPageState extends State<PainPage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 16, top: 20, right: 16),
+        padding: const EdgeInsets.only(left: 16, top: 20, right: 16),
         child: Column(
           children: [
             Row(
@@ -48,16 +49,80 @@ class _PainPageState extends State<PainPage> {
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(6),
                   ),
                   width: 72,
                   height: 72,
                   child: Image.asset(
                     "assets/2.png",
+                    height: 30,
                   ),
-                )
+                ),
+                const Column(
+                  children: [
+                    Text(
+                      "Зеленый салат",
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "390 ₽ · ",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          " 420г",
+                          style: TextStyle(fontSize: 14, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 100),
+                  child: Container(
+                    height: 32,
+                    width: 99,
+                    decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              index--;
+                            });
+                          },
+                          child: Image.asset(
+                            "assets/minus.png",
+                          ),
+                        ),
+                        Text(
+                          "$index",
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              index++;
+                            });
+                          },
+                          child: Image.asset(
+                            "assets/plus.png",
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

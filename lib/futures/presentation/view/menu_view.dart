@@ -58,7 +58,12 @@ class _MenuViewState extends State<MenuView> {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
-            leading: const Icon(Icons.arrow_back_ios),
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios),
+            ),
             title: const Text('Азиатская кухня'),
             centerTitle: true,
             bottom: TabBar(
@@ -118,31 +123,6 @@ class _MenuViewState extends State<MenuView> {
                 ),
               );
             },
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 16, right: 16),
-            //   child: GridView.count(
-            //     crossAxisCount: 3,
-            //     shrinkWrap: true,
-            //     physics: ScrollPhysics(),
-            //     children: [
-            //       Column(
-            //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //           children: [
-            //             InkWell(
-            //               onTap: () {
-            //
-            //               },
-            //               child: Card(
-            //                 child: Image.asset('assets/6.png'),
-            //               ),
-            //             ),
-            //             Text(
-            //               "Салат по восточному",
-            //               style: TextStyle(fontSize: 10),
-            //             ),
-            //           ]),
-            //     ],
-            //   ),
           ),
           bottomNavigationBar: SizedBox(
             child: BottomNavigationBar(
@@ -256,32 +236,47 @@ Future<void> _dialogBuilder(BuildContext context) {
           decoration: BoxDecoration(
               color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
           child: Stack(children: [
-            Row(
-              children: [
-                Image.asset("assets/1.png",
-                    height: 230, width: 230, fit: BoxFit.contain),
-                Container(
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+            Center(
+              child: Positioned(
+                top: 20,
+                child: Image.asset(
+                  "assets/2.png",
+                  height: 204,
+                  width: 198,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 260,
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                   child: Image.asset(
                     "assets/favorite.png",
                   ),
                 ),
-                SizedBox(width: 10),
-                Container(
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Image.asset(
-                    "assets/Icons.png",
-                  ),
-                )
-              ],
+              ),
+            ),
+            SizedBox(width: 10),
+            Positioned(
+              left: 210,
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Image.asset(
+                  "assets/Icons.png",
+                ),
+              ),
             ),
           ]),
         ),
@@ -331,7 +326,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                 height: 50,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.blue.shade800,
                     borderRadius: BorderRadius.circular(10)),
                 child: const Center(
                   child: Text(
