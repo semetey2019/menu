@@ -54,125 +54,125 @@ class _MenuViewState extends State<MenuView> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return DefaultTabController(
-        initialIndex: 1,
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back_ios),
-            ),
-            title: const Text('Азиатская кухня'),
-            centerTitle: true,
-            bottom: TabBar(
-              overlayColor: MaterialStateProperty.resolveWith((states) => null),
-              dividerColor: Colors.transparent,
-              splashBorderRadius: const BorderRadius.all(Radius.circular(10)),
-              indicatorColor: Colors.blue,
-              unselectedLabelColor: Colors.black,
-              labelColor: Colors.black,
-              tabs: const [
-                Tab(text: 'Все меню'),
-                Tab(text: 'Салаты'),
-                Tab(text: 'С рисом'),
-                Tab(text: 'С рыбой'),
-              ],
-              indicator: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
-                border: Border(
-                  top: BorderSide(color: Colors.blue, width: 2.0),
-                  bottom: BorderSide(color: Colors.blue, width: 2.0),
-                ),
-              ),
-            ),
-            actions: const [
-              Padding(
-                padding: EdgeInsets.only(right: 25),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    "assets/5.png",
-                  ),
-                ),
-              ),
-            ],
-          ),
-          body: GridView.builder(
-            padding: const EdgeInsets.all(16.00),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 10),
-            itemCount: texts.length,
-            itemBuilder: (BuildContext context, int index) {
-              String pngPath = images[index];
-              return InkWell(
-                onTap: () {
-                  setState(() {
-                    _dialogBuilder(context);
-                  });
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(pngPath),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              );
+      initialIndex: 1,
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
             },
+            icon: Icon(Icons.arrow_back_ios),
           ),
-          bottomNavigationBar: SizedBox(
-            child: BottomNavigationBar(
-              currentIndex: pageIndex,
-              onTap: (index) {
-                routerScreen(index: index);
-              },
-              backgroundColor: Colors.green,
-              selectedLabelStyle: const TextStyle(
-                  fontWeight: FontWeight.w500, color: Colors.red),
-              selectedItemColor: Colors.blue,
-              unselectedItemColor: Colors.grey,
-              iconSize: 20.0,
-              items: const [
-                BottomNavigationBarItem(
-                  label: 'Главная',
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.blue,
-                    size: 25,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Поиск',
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.blue,
-                    size: 25,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Корзина',
-                  icon: Icon(
-                    CupertinoIcons.cart,
-                    color: Colors.blue,
-                    size: 25,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Аккаунт',
-                  icon: Icon(
-                    Icons.person,
-                    color: Colors.blue,
-                    size: 25,
-                  ),
-                ),
-              ],
+          title: const Text('Азиатская кухня'),
+          centerTitle: true,
+          bottom: TabBar(
+            overlayColor: MaterialStateProperty.resolveWith((states) => null),
+            dividerColor: Colors.transparent,
+            splashBorderRadius: const BorderRadius.all(Radius.circular(10)),
+            indicatorColor: Colors.blue,
+            unselectedLabelColor: Colors.black,
+            labelColor: Colors.black,
+            tabs: const [
+              Tab(text: 'Все меню'),
+              Tab(text: 'Салаты'),
+              Tab(text: 'С рисом'),
+              Tab(text: 'С рыбой'),
+            ],
+            indicator: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
+              border: Border(
+                top: BorderSide(color: Colors.blue, width: 2.0),
+                bottom: BorderSide(color: Colors.blue, width: 2.0),
+              ),
             ),
           ),
-        ));
+          actions: const [
+            Padding(
+              padding: EdgeInsets.only(right: 25),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(
+                  "assets/5.png",
+                ),
+              ),
+            ),
+          ],
+        ),
+        body: GridView.builder(
+          padding: const EdgeInsets.all(16.00),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 10),
+          itemCount: texts.length,
+          itemBuilder: (BuildContext context, int index) {
+            String pngPath = images[index];
+            return InkWell(
+              onTap: () {
+                setState(() {
+                  _dialogBuilder(context);
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(pngPath),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+        // bottomNavigationBar: SizedBox(
+        //   child: BottomNavigationBar(
+        //     currentIndex: pageIndex,
+        //     onTap: (index) {
+        //       routerScreen(index: index);
+        //     },
+        //     backgroundColor: Colors.green,
+        //     selectedLabelStyle: const TextStyle(
+        //         fontWeight: FontWeight.w500, color: Colors.red),
+        //     selectedItemColor: Colors.blue,
+        //     unselectedItemColor: Colors.grey,
+        //     iconSize: 20.0,
+        //     items: const [
+        //       BottomNavigationBarItem(
+        //         label: 'Главная',
+        //         icon: Icon(
+        //           Icons.home,
+        //           color: Colors.blue,
+        //           size: 25,
+        //         ),
+        //       ),
+        //       BottomNavigationBarItem(
+        //         label: 'Поиск',
+        //         icon: Icon(
+        //           Icons.search,
+        //           color: Colors.blue,
+        //           size: 25,
+        //         ),
+        //       ),
+        //       BottomNavigationBarItem(
+        //         label: 'Корзина',
+        //         icon: Icon(
+        //           CupertinoIcons.cart,
+        //           color: Colors.blue,
+        //           size: 25,
+        //         ),
+        //       ),
+        //       BottomNavigationBarItem(
+        //         label: 'Аккаунт',
+        //         icon: Icon(
+        //           Icons.person,
+        //           color: Colors.blue,
+        //           size: 25,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+      ),
+    );
   }
 }
 

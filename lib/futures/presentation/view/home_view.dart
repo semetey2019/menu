@@ -10,16 +10,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int pageIndex = 0;
-
-  routerScreen({required int index}) {
-    if (pageIndex != index) {
-      setState(() {
-        pageIndex = index;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -87,53 +77,6 @@ class _HomeViewState extends State<HomeView> {
               )
             ],
           ),
-        ),
-      ),
-      bottomNavigationBar: SizedBox(
-        child: BottomNavigationBar(
-          currentIndex: pageIndex,
-          onTap: (index) {
-            routerScreen(index: index);
-          },
-          backgroundColor: Colors.green,
-          selectedLabelStyle:
-              const TextStyle(fontWeight: FontWeight.w500, color: Colors.red),
-          selectedItemColor: Colors.blue,
-          iconSize: 20.0,
-          items: const [
-            BottomNavigationBarItem(
-              label: 'Главная',
-              icon: Icon(
-                Icons.home,
-                color: Colors.blue,
-                size: 25,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Поиск',
-              icon: Icon(
-                Icons.search,
-                color: Colors.blue,
-                size: 25,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Корзина',
-              icon: Icon(
-                CupertinoIcons.cart,
-                color: Colors.blue,
-                size: 25,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: 'Аккаунт',
-              icon: Icon(
-                Icons.person,
-                color: Colors.blue,
-                size: 25,
-              ),
-            ),
-          ],
         ),
       ),
     );

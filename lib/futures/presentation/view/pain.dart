@@ -53,9 +53,12 @@ class _PainPageState extends State<PainPage> {
                   ),
                   width: 72,
                   height: 72,
-                  child: Image.asset(
-                    "assets/2.png",
-                    height: 30,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      "assets/2.png",
+                      height: 30,
+                    ),
                   ),
                 ),
                 const Column(
