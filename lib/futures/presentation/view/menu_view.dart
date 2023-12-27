@@ -34,7 +34,6 @@ class _MenuViewState extends State<MenuView> {
     'assets/6.png',
     'assets/6.png',
     'assets/6.png',
-    // Добавьте пути к своим изображениям
   ];
 
   List<String> texts = [
@@ -44,11 +43,11 @@ class _MenuViewState extends State<MenuView> {
     'Зеленый салат',
     'Рулеты из ветчины',
     'Рис с овощами',
-    'Салат по восточному', 'Салат по восточному',
+    'Салат по восточному',
+    'Салат по восточному',
     'Рыба с овощами и рисом',
     'Тортеллини',
     'Зеленый салат',
-    // Добавьте свои описания
   ];
   @override
   Widget build(BuildContext context) {
@@ -114,63 +113,18 @@ class _MenuViewState extends State<MenuView> {
                 });
               },
               child: Container(
+                height: 62,
+                width: 62,
                 decoration: BoxDecoration(
+                  color: Colors.grey[100],
                   image: DecorationImage(
                     image: AssetImage(pngPath),
-                    fit: BoxFit.cover,
                   ),
                 ),
               ),
             );
           },
         ),
-        // bottomNavigationBar: SizedBox(
-        //   child: BottomNavigationBar(
-        //     currentIndex: pageIndex,
-        //     onTap: (index) {
-        //       routerScreen(index: index);
-        //     },
-        //     backgroundColor: Colors.green,
-        //     selectedLabelStyle: const TextStyle(
-        //         fontWeight: FontWeight.w500, color: Colors.red),
-        //     selectedItemColor: Colors.blue,
-        //     unselectedItemColor: Colors.grey,
-        //     iconSize: 20.0,
-        //     items: const [
-        //       BottomNavigationBarItem(
-        //         label: 'Главная',
-        //         icon: Icon(
-        //           Icons.home,
-        //           color: Colors.blue,
-        //           size: 25,
-        //         ),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         label: 'Поиск',
-        //         icon: Icon(
-        //           Icons.search,
-        //           color: Colors.blue,
-        //           size: 25,
-        //         ),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         label: 'Корзина',
-        //         icon: Icon(
-        //           CupertinoIcons.cart,
-        //           color: Colors.blue,
-        //           size: 25,
-        //         ),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         label: 'Аккаунт',
-        //         icon: Icon(
-        //           Icons.person,
-        //           color: Colors.blue,
-        //           size: 25,
-        //         ),
-        //       ),
-        //     ],
-        //   ),
       ),
     );
   }
