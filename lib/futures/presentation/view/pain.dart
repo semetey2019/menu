@@ -41,8 +41,10 @@ class _PainPageState extends State<PainPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 16, top: 20, right: 16),
+        padding:
+            const EdgeInsets.only(left: 16, top: 20, right: 16, bottom: 40),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
@@ -51,13 +53,12 @@ class _PainPageState extends State<PainPage> {
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  width: 72,
-                  height: 72,
+                  width: 62,
+                  height: 62,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(7.0),
                     child: Image.asset(
                       "assets/2.png",
-                      height: 30,
                     ),
                   ),
                 ),
@@ -126,6 +127,19 @@ class _PainPageState extends State<PainPage> {
                 ),
               ],
             ),
+            SizedBox(height: 100),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  minimumSize: const Size.fromHeight(48)),
+              onPressed: () {},
+              child: Text(
+                "Оплатить 2 004 ₽",
+                style: const TextStyle(color: Colors.white),
+              ),
+            )
           ],
         ),
       ),
