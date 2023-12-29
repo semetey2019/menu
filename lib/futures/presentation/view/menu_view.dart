@@ -112,16 +112,22 @@ class _MenuViewState extends State<MenuView> {
                   _dialogBuilder(context);
                 });
               },
-              child: Container(
-                height: 62,
-                width: 62,
-                decoration: BoxDecoration(
-                  color: Colors.grey[100],
-                  image: DecorationImage(
-                    image: AssetImage(pngPath),
+              child: Column(children: [
+                Container(
+                  height: 62,
+                  width: 62,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    image: DecorationImage(
+                      image: AssetImage(pngPath),
+                    ),
                   ),
                 ),
-              ),
+                Text(
+                  "${texts[index]} ",
+                  textAlign: TextAlign.center,
+                ),
+              ]),
             );
           },
         ),

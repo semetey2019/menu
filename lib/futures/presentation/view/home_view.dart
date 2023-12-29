@@ -99,7 +99,8 @@ class _HomeViewState extends State<HomeView> {
       ),
       // screen[
       //     currentDrawerIndex > pageIndex ? currentDrawerIndex : pageIndex],
-      bottomNavigationBar: SizedBox(
+      bottomNavigationBar: 
+      SizedBox(
         child: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: (index) {
