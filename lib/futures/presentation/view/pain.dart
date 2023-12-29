@@ -62,72 +62,71 @@ class _PainPageState extends State<PainPage> {
                     ),
                   ),
                 ),
-                const Column(
-                  children: [
-                    Text(
-                      "Зеленый салат",
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "390 ₽ · ",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
+                const SizedBox(width: 6),
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Зеленый салат",
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "390 ₽ · ",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          " 420г",
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(height: 4),
+                          Text(
+                            " 420г",
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 100),
-                  child: Container(
-                    height: 32,
-                    width: 99,
-                    decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              index--;
-                            });
-                          },
-                          child: Image.asset(
-                            "assets/minus.png",
-                          ),
-                        ),
-                        Text(
-                          "$index",
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              index++;
-                            });
-                          },
-                          child: Image.asset(
-                            "assets/plus.png",
-                          ),
-                        ),
-                      ],
-                    ),
+                const SizedBox(width: 6),
+                Container(
+                  height: 32,
+                  width: 99,
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            if (index > 1) index--;
+                          });
+                        },
+                        child: const Icon(Icons.remove),
+                      ),
+                      Text(
+                        "$index",
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            index++;
+                          });
+                        },
+                        child: const Icon(Icons.add),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -135,9 +134,9 @@ class _PainPageState extends State<PainPage> {
                       borderRadius: BorderRadius.circular(15)),
                   minimumSize: const Size.fromHeight(48)),
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Оплатить 2 004 ₽",
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ),
             )
           ],
