@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:menu/futures/presentation/view/exemple.dart';
+
 import 'package:menu/futures/presentation/view/home_view.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BottomNavigationBarExample(),
+      home: const HomeView(),
     );
   }
 }
