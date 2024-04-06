@@ -1,8 +1,5 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:menu/futures/presentation/view/pain.dart';
+import 'package:menu/futures/presentation/views/pain_page.dart';
 
 class MenuView extends StatefulWidget {
   const MenuView({super.key});
@@ -61,7 +58,7 @@ class _MenuViewState extends State<MenuView> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
           title: const Text('Азиатская кухня'),
           centerTitle: true,
@@ -222,7 +219,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Positioned(
                 left: 210,
                 child: Container(
@@ -294,8 +291,8 @@ Future<void> _dialogBuilder(BuildContext context) {
                     ),
                   )),
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => PainPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => const PainPage()));
               },
             ),
           ],

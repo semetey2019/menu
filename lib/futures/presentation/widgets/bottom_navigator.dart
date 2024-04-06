@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:menu/futures/presentation/views/home_view.dart';
 import '../../../home/home_screen.dart';
-import '../view/accaunt_page.dart';
-import '../view/menu_view.dart';
-import '../view/pain.dart';
+import '../views/menu_view.dart';
+import '../views/pain_page.dart';
 
 class BottomScreen extends StatefulWidget {
   const BottomScreen({
@@ -14,13 +14,13 @@ class BottomScreen extends StatefulWidget {
 }
 
 class _BottomScreenState extends State<BottomScreen> {
-  int pageIndex = 1;
+  int pageIndex = 0;
 
   List<Widget> screen = [
-    const HomeScreen(),
+    const HomeView(),
     const MenuView(),
     const PainPage(),
-    const AccauntPage(),
+    const HomeScreen(),
   ];
 
   routerScreen({required int index}) {
@@ -43,7 +43,7 @@ class _BottomScreenState extends State<BottomScreen> {
         backgroundColor: Colors.green,
         selectedLabelStyle: const TextStyle(
           fontWeight: FontWeight.w500,
-          color: Colors.white,
+          color: Colors.blue,
         ),
         selectedItemColor: const Color(0xffF9B803),
         iconSize: 20.0,
@@ -53,21 +53,30 @@ class _BottomScreenState extends State<BottomScreen> {
             icon: Icon(
               Icons.home,
               size: 25,
+              color: Colors.blue,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Жеке баракча',
             icon: Icon(
               Icons.person_pin_circle_rounded,
-              color: Colors.white,
+              color: Colors.blue,
               size: 25,
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Настройка',
+            label: 'Жеке баракча',
             icon: Icon(
-              Icons.settings,
-              color: Colors.white,
+              Icons.person_pin_circle_rounded,
+              color: Colors.blue,
+              size: 25,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'GoogleMap',
+            icon: Icon(
+              Icons.map,
+              color: Colors.blue,
               size: 25,
             ),
           ),
