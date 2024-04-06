@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:menu/futures/presentation/view/accaunt_page.dart';
-import 'package:menu/futures/presentation/view/home_view.dart';
 import 'package:menu/futures/presentation/view/menu_view.dart';
 import 'package:menu/futures/presentation/view/pain.dart';
+
+import '../../../home/home_screen.dart';
 
 class BottomNavigationBarExample extends StatefulWidget {
   const BottomNavigationBarExample({super.key});
@@ -16,7 +17,7 @@ class _BottomNavigationBarExampleState
     extends State<BottomNavigationBarExample> {
   int _selectedIndex = 0;
   List<Widget> screen = [
-    const HomeView(),
+    const HomeScreen(),
     const MenuView(),
     const PainPage(),
     const AccauntPage(),

@@ -4,6 +4,8 @@ import 'package:menu/futures/presentation/view/accaunt_page.dart';
 import 'package:menu/futures/presentation/view/menu_view.dart';
 import 'package:menu/futures/presentation/view/pain.dart';
 
+import '../../../home/home_screen.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -14,7 +16,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int _selectedIndex = 0;
   List<Widget> screen = [
-    const HomeView(),
+    const HomeScreen(),
     const MenuView(),
     const PainPage(),
     const AccauntPage(),
@@ -70,24 +72,26 @@ class _HomeViewState extends State<HomeView> {
                 fit: BoxFit.fill,
                 width: double.infinity,
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Image.asset(
                 "assets/580.png",
                 fit: BoxFit.fill,
                 width: double.infinity,
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MenuView()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MenuView()));
                   },
                   child: Image.asset(
                     "assets/581.png",
                     fit: BoxFit.fill,
                     width: double.infinity,
                   )),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Image.asset(
                 "assets/582.png",
                 fit: BoxFit.fill,
@@ -99,8 +103,7 @@ class _HomeViewState extends State<HomeView> {
       ),
       // screen[
       //     currentDrawerIndex > pageIndex ? currentDrawerIndex : pageIndex],
-      bottomNavigationBar: 
-      SizedBox(
+      bottomNavigationBar: SizedBox(
         child: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: (index) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:menu/futures/presentation/view/home_view.dart';
+import '../futures/presentation/widgets/bottom_navigator.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      home: const BottomScreen(),
     );
   }
 }
